@@ -1,0 +1,31 @@
+.footer {
+    background: #000;
+}
+.footer-logo {
+    filter: invert(100%);
+    margin-top: 15px;
+}
+.footer__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.footer__info__text p {
+    max-width: 640px;
+    margin-right: 20px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.03em;
+    color: #fff;
+}
+.footer__info__text img {
+    background: #fff;
+}
+.footer__info__icons {
+    display: flex;
+    gap: 20px;
+    color: #818896;
+    font-size: 30px;
+}
