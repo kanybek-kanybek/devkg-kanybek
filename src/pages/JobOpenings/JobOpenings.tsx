@@ -28,4 +28,4 @@ function JobOpenings() {
     );
 }
 
-export default JobOpenings
+export default JobOpenings;
