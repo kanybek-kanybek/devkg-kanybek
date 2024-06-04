@@ -1,4 +1,4 @@
-.vacancy_content {
+.VacancyList_content {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -7,15 +7,15 @@
     background: #f1f4f9;
   }
   
-  .vacancy-title {
+  .VacancyList-title {
     color: #a5a3a3;
     font-size: 16px;
   }
   
-  .vacancy-name,
-  .vacancy-office,
-  .vacancy-price,
-  .vacancy-type {
+  .VacancyList-name,
+  .VacancyList-office,
+  .VacancyList-price,
+  .VacancyList-type {
     color: #191f9d;
     font-size: 18px;
   }
