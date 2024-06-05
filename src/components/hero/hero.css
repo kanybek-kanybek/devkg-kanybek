@@ -9,14 +9,11 @@
     margin-top: 45px;
 }
 .hero__logo {
-    background: url("https://devkg.com/images/events/3f939781ea355bb5cb8ef28c7148ec70.webp")
-        center;
     background: #c2a7a7;
     background-size: cover;
     background-repeat: no-repeat;
-    max-width: 1176px;
+    max-width: 100%;
     margin: 0 auto;
-    width: 100%;
     padding: 21px;
     margin-top: 30px;
 }
