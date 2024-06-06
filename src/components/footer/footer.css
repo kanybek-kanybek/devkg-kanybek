@@ -1,4 +1,10 @@
 .footer {
+    width: 100%;
+}
+.container__footer {
+    margin: 0 auto;
+    width: 100%;
+    padding: 21px;
     background: #000;
 }
 .footer-logo {
@@ -25,7 +31,19 @@
 }
 .footer__info__icons {
     display: flex;
-    gap: 20px;
+    width: 100%;
     color: #818896;
     font-size: 30px;
+    gap: 20px;
+}
+@media screen and (max-width: 500px) {
+    .footer__info {
+        flex-direction: column;
+    }
+    .footer__info__text p {
+        font-size: 11px;
+    }
+    .footer__content {
+        width: 100%;
+    }
 }

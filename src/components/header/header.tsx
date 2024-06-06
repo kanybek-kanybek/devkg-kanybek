@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { SlArrowRightCircle } from "react-icons/sl";
+import { VscClose } from "react-icons/vsc";
 import "./header.css";
 
 function Header() {
@@ -55,6 +56,9 @@ function Header() {
                             }`}
                         >
                             <nav className="burger-menu__list">
+                                <Link to="/" onClick={toggleBurgerMenu}>
+                                    <VscClose />
+                                </Link>
                                 <Link
                                     to="/JobOpenings"
                                     onClick={toggleBurgerMenu}
@@ -88,6 +92,11 @@ function Header() {
                                 </span>
                                 Войти
                             </button>
+                        </div>
+                        <div className="header__enter__two">
+                            <span>
+                                <SlArrowRightCircle />
+                            </span>
                         </div>
                     </div>
                 </div>
