@@ -1,14 +1,8 @@
 .footer {
-    width: 100%;
     background: #000;
-}
-.container__footer {
     max-width: 100%;
-    margin: 0 auto;
-    width: 1200px;
-    padding: 21px;
-    background: #000;
 }
+
 .footer-logo {
     filter: invert(100%);
     margin-top: 15px;

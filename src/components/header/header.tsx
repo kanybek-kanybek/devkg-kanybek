@@ -56,8 +56,19 @@ function Header() {
                             }`}
                         >
                             <nav className="burger-menu__list">
-                                <Link to="/" onClick={toggleBurgerMenu}>
-                                    <VscClose />
+                                <Link
+                                    className="burger-menu__list-logo"
+                                    to="/"
+                                    onClick={toggleBurgerMenu}
+                                >
+                                    <img
+                                        onClick={logoHeader}
+                                        src="https://devkg.com/js/img/logo.458f2cd.svg"
+                                        alt=""
+                                    />
+                                    <p>
+                                        <VscClose />
+                                    </p>
                                 </Link>
                                 <Link
                                     to="/JobOpenings"

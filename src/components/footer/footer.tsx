@@ -13,7 +13,7 @@ function Footer() {
     return (
         <>
             <div className="footer">
-                <div className="container__footer">
+                <div className="container">
                     <div className="footer__content">
                         <div className="footer-logo">
                             <img
