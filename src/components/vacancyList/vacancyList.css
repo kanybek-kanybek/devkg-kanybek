@@ -1,4 +1,4 @@
-.VacancyList_content {
+.VacancyList__item {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -6,16 +6,32 @@
     padding: 21px;
     background: #f1f4f9;
   }
+
+  .vacancy_logo {
+    max-width: 32px;
+    max-height: 32px;
+  }
+
+  .vacancy_logo img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .VacancyList__details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
   
-  .VacancyList-title {
+  .VacancyList__title {
     color: #a5a3a3;
     font-size: 16px;
   }
   
-  .VacancyList-name,
-  .VacancyList-office,
-  .VacancyList-price,
-  .VacancyList-type {
+  .VacancyList__name,
+  .VacancyList__office,
+  .VacancyList__price,
+  .VacancyList__type {
     color: #191f9d;
     font-size: 18px;
   }

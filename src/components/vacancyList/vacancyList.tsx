@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import './vacancyList.css';
+import "./vacancyList.css";
+import logoImg from "../../assets/733525f43fb53ec1ff2912d7365232dd.png";
+import { useNavigate } from "react-router-dom";
 
 interface Vacancy {
   id: number;
   logo?: string;
-  company: string;
+  organization: string;
   office: string;
   salary: string | number;
   jobType: string;
@@ -13,6 +15,11 @@ interface Vacancy {
 
 const VacancyList: React.FC = () => {
   const [data, setData] = useState<Vacancy[]>([]);
+  const navigate = useNavigate();
+
+  const handleVacancyClick = (id: number) => {
+    navigate(`/JobPage/${id}`);
+  };
 
   useEffect(() => {
     axios("https://01de09931cc9286e.mokky.dev/allvakansies")
@@ -27,36 +34,28 @@ const VacancyList: React.FC = () => {
   return (
     <div className="VacancyList">
       {data.map((vacancy) => (
-        <div key={vacancy.id} className="VacancyList__item">
-          <div className="VacancyList__details">
-            <b className="VacancyList__title">ID</b>
-            <b className="VacancyList__id">{vacancy.id}</b>
-          </div>
-          <div className="VacancyList__logo">
-            {vacancy.logo ? (
-              <img
-                src={vacancy.logo}
-                alt={vacancy.company}
-                className="VacancyList__logo-img"
-              />
-            ) : (
-              <div className="VacancyList__logo-placeholder">Logo</div>
-            )}
+        <div
+          key={vacancy.id}
+          className="VacancyList__item"
+          onClick={() => handleVacancyClick(vacancy.id)}
+        >
+          <div className="vacancy_logo">
+            <img src={logoImg} />
           </div>
           <div className="VacancyList__details">
-            <b className="VacancyList__title">Company</b>
-            <b className="VacancyList__name">{vacancy.company}</b>
+            <b className="VacancyList__title">Компания</b>
+            <b className="VacancyList__name">{vacancy.organization}</b>
           </div>
           <div className="VacancyList__details">
-            <b className="VacancyList__title">Position</b>
+            <b className="VacancyList__title">Должность</b>
             <b className="VacancyList__office">{vacancy.office}</b>
           </div>
           <div className="VacancyList__details">
-            <b className="VacancyList__title">Salary</b>
+            <b className="VacancyList__title">Оклад</b>
             <b className="VacancyList__salary">{vacancy.salary}</b>
           </div>
           <div className="VacancyList__details">
-            <b className="VacancyList__title">Type</b>
+            <b className="VacancyList__title">Тип</b>
             <b className="VacancyList__type">{vacancy.jobType}</b>
           </div>
         </div>

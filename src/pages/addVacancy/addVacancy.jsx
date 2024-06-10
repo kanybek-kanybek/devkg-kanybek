@@ -2,6 +2,7 @@ import React from "react";
 import LeftSidebar from "../../components/leftSidebar/leftSidebar";
 import VacancyForm from "../../components/vacancyForm/vacancyForm";
 import "./addVacancy.css";
+import Footer from "../../components/footer/footer";
 
 function AddVacancy() {
   return (
@@ -15,6 +16,7 @@ function AddVacancy() {
             опубликована после проверки модератором
           </p>
           <VacancyForm />
+          <Footer/>
         </div>
       </div>
     </div>
