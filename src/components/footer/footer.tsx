@@ -5,7 +5,6 @@ import { TfiGithub } from "react-icons/tfi";
 import { FaYoutube } from "react-icons/fa";
 // import logoFooter from "../../assets/imges/logo.footer.svg";
 import { useNavigate } from "react-router-dom";
-import '../../App.css';
 function Footer() {
     const navLogoFooter = useNavigate();
     function logoFooterHandler() {
