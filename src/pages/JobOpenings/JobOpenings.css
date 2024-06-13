@@ -1,0 +1,17 @@
+.JobOpenings_content {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.vacancy-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #6fcf97;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}

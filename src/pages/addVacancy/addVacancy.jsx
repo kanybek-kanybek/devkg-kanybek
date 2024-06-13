@@ -16,7 +16,7 @@ function AddVacancy() {
             опубликована после проверки модератором
           </p>
           <VacancyForm />
-          <Footer/>
+          <Footer />
         </div>
       </div>
     </div>
