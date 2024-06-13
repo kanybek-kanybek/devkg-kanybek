@@ -5,6 +5,7 @@ function JobOpenings() {
     return (
         <>
             <Header />
+
             <Footer />
         </>
     );
