@@ -24,7 +24,6 @@ function JobOpenings() {
       <Footer />
     </div>
   );
->>>>>>> 6b4e452 (vacancy)
 }
 
 export default JobOpenings;

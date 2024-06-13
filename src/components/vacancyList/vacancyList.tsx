@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import "./vacancyList.css";
-import logoImg from "../../assets/733525f43fb53ec1ff2912d7365232dd.png";
 import { useNavigate } from "react-router-dom";
 
 interface Vacancy {
@@ -40,7 +39,7 @@ const VacancyList: React.FC = () => {
           onClick={() => handleVacancyClick(vacancy.id)}
         >
           <div className="vacancy_logo">
-            <img src={logoImg} />
+            {/* <img src={logoImg} /> */}
           </div>
           <div className="VacancyList__details">
             <b className="VacancyList__title">Компания</b>
