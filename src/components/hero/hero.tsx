@@ -13,10 +13,27 @@ function Hero() {
                                 <p>
                                     08 июня 2024 <em>13:00</em>
                                 </p>
-                                <h2>
-                                    Что такое автоматизация тестирования и с чем
-                                    её <br /> едят
-                                </h2>
+                                <h2>Что такое SQL и почему он нужен везде?</h2>
+                            </div>
+                            <div className="hero__logo__organizer">
+                                <div className="hero-organizer">
+                                    <p>Организатор</p>
+                                    <h4>Software Testers from KG</h4>
+                                </div>
+                                <div className="hero-location">
+                                    <p>Локация</p>
+                                    <h4>
+                                        Codify Academy, 7-й микрорайон, 26/2
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="hero__logo">
+                            <div className="hero__logo__text">
+                                <p>
+                                    08 июня 2024 <em>13:00</em>
+                                </p>
+                                <h2>Что такое SQL и почему он нужен везде?</h2>
                             </div>
                             <div className="hero__logo__organizer">
                                 <div className="hero-organizer">

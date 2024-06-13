@@ -1,6 +1,8 @@
 .footer {
     background: #000;
+    max-width: 100%;
 }
+
 .footer-logo {
     filter: invert(100%);
     margin-top: 15px;
@@ -25,7 +27,19 @@
 }
 .footer__info__icons {
     display: flex;
-    gap: 20px;
+    width: 100%;
     color: #818896;
     font-size: 30px;
+    gap: 20px;
+}
+@media screen and (max-width: 500px) {
+    .footer__info {
+        flex-direction: column;
+    }
+    .footer__info__text p {
+        font-size: 11px;
+    }
+    .footer__content {
+        width: 100%;
+    }
 }

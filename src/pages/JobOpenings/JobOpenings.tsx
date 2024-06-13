@@ -1,13 +1,13 @@
 import Footer from "../../components/footer/footer";
 import Header from "../../components/header/header";
 
-function Organizations() {
+function JobOpenings() {
     return (
-        <div>
+        <>
             <Header />
             <Footer />
-        </div>
+        </>
     );
 }
 
-export default Organizations;
+export default JobOpenings;
