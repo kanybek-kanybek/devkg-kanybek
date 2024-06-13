@@ -3,7 +3,7 @@ import { FaTelegramPlane } from "react-icons/fa";
 import { FaFacebookSquare } from "react-icons/fa";
 import { TfiGithub } from "react-icons/tfi";
 import { FaYoutube } from "react-icons/fa";
-import logoFooter from "../../assets/imges/logo.footer.svg";
+// import logoFooter from "../../assets/imges/logo.footer.svg";
 import { useNavigate } from "react-router-dom";
 function Footer() {
     const navLogoFooter = useNavigate();
@@ -18,7 +18,7 @@ function Footer() {
                         <div className="footer-logo">
                             <img
                                 onClick={logoFooterHandler}
-                                src={logoFooter}
+                                // src={logoFooter}
                                 alt=""
                             />
                         </div>

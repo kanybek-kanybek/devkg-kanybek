@@ -1,0 +1,82 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.btn-vkb {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.btn-vkb button{
+  color: #fff ;
+  font-weight: 600;
+}
+.Video {
+  padding: 40px 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+/* .mainBlocл k{
+  padding: 30px;
+  width: 450px;
+  height: 300px;
+  background: linear-gradient(
+    147.89deg,
+    rgb(72, 198, 239) -31.07%,
+    rgb(111, 134, 214) 128.49%
+  );
+} */
+
+.h11 h1 {
+  color: #a7b0c2;
+  font-size: 23px;
+  letter-spacing: 0.03em;
+  font-weight: 700;
+}
+
+.video-df {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2.5pc
+}
+.video-bg {
+  background-color: aqua;
+  width: 36pc;
+  margin-top: 3pc;
+}
+.vs-video {
+  padding: 3pc;
+}
+.vs-video h1 {
+  width: 16pc;
+  color: white;
+}
+
+.video-text {
+  display: flex;
+  gap: 3pc;
+  padding: 1pc 0;
+}
+.video-text span {
+  font-size: 1pc;
+  color: white;
+}
+
+.video-text h2 {
+  color: white;
+  font-size: 20px;
+}
+
+
