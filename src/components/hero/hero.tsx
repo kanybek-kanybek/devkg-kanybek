@@ -1,4 +1,6 @@
 import "./hero.css";
+import '../../App.css';
+
 function Hero() {
     return (
         <>
