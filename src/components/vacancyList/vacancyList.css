@@ -8,11 +8,12 @@
 .logo-detalils {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 140px;
+    gap: 150px;
 }
 .vacancy_logo {
-    max-width: 32px;
-    max-height: 32px;
+    max-width: 40px;
+    max-height: 40px;
+    margin-top: 15px;
 }
 
 .vacancy_logo img {
