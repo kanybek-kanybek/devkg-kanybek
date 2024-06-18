@@ -4,6 +4,10 @@
 }
 
 .vacancy-btn {
+    position: relative;
+    left: 50%;
+    display: block;
+    margin: 20px auto;
     padding: 10px 20px;
     font-size: 16px;
     background-color: #6fcf97;
