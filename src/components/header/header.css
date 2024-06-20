@@ -112,15 +112,21 @@
     align-items: center;
     justify-content: space-between;
 }
-.burger-menu__list-logo p {
-    margin-top: -5px;
-    right: 0;
-    top: 0;
+.burger-menu__list-paragraft {
+    margin-top: 12px;
+    font-size: 24px;
+    color: #a7b0c2;
+    cursor: pointer;
 }
 .burger-menu.active {
     display: flex;
 }
 .burger-menu__list {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+}
+.burger-menu__list__links {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -129,6 +135,8 @@
     color: #000;
     font-size: 24px;
     text-decoration: none;
+    color: #a7b0c2;
+    font-weight: 700;
 }
 
 .header__enter span {

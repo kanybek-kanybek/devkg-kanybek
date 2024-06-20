@@ -56,44 +56,54 @@ function Header() {
                             }`}
                         >
                             <nav className="burger-menu__list">
-                                <Link
-                                    className="burger-menu__list-logo"
-                                    to="/"
-                                    onClick={toggleBurgerMenu}
-                                >
-                                    <img
-                                        onClick={logoHeader}
-                                        src="https://devkg.com/js/img/logo.458f2cd.svg"
-                                        alt=""
-                                    />
-                                    <p>
+                                <div className="burger-menu__list__links">
+                                    <Link
+                                        className="burger-menu__list-logo"
+                                        to="/"
+                                        onClick={toggleBurgerMenu}
+                                    >
+                                        <img
+                                            onClick={logoHeader}
+                                            src="https://devkg.com/js/img/logo.458f2cd.svg"
+                                            alt=""
+                                        />
+                                    </Link>
+                                    <Link
+                                        to="/JobOpenings"
+                                        onClick={toggleBurgerMenu}
+                                    >
+                                        Вакансии
+                                    </Link>
+                                    <Link
+                                        to="/Events"
+                                        onClick={toggleBurgerMenu}
+                                    >
+                                        Мероприятия
+                                    </Link>
+                                    <Link
+                                        to="/Video"
+                                        onClick={toggleBurgerMenu}
+                                    >
+                                        Видео
+                                    </Link>
+                                    <Link
+                                        to="/Organizations"
+                                        onClick={toggleBurgerMenu}
+                                    >
+                                        Организации
+                                    </Link>
+                                    <Link
+                                        to="/Community"
+                                        onClick={toggleBurgerMenu}
+                                    >
+                                        Сообщество
+                                    </Link>
+                                </div>
+                                <div>
+                                    <p className="burger-menu__list-paragraft">
                                         <VscClose />
                                     </p>
-                                </Link>
-                                <Link
-                                    to="/JobOpenings"
-                                    onClick={toggleBurgerMenu}
-                                >
-                                    Вакансии
-                                </Link>
-                                <Link to="/Events" onClick={toggleBurgerMenu}>
-                                    Мероприятия
-                                </Link>
-                                <Link to="/Video" onClick={toggleBurgerMenu}>
-                                    Видео
-                                </Link>
-                                <Link
-                                    to="/Organizations"
-                                    onClick={toggleBurgerMenu}
-                                >
-                                    Организации
-                                </Link>
-                                <Link
-                                    to="/Community"
-                                    onClick={toggleBurgerMenu}
-                                >
-                                    Сообщество
-                                </Link>
+                                </div>
                             </nav>
                         </div>
                         <div className="header__enter">

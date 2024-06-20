@@ -1,28 +1,43 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
+
+body {
+    font-family: Arial, sans-serif;
+}
+
 .container {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
+    padding: 0 15px;
 }
 
 .btn-vkb {
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: center;
+    margin: 20px 0;
 }
 
 .btn-vkb button {
     color: #fff;
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
     font-weight: 600;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
-.Video {
+
+.btn-vkb button:hover {
+    background-color: #0056b3;
+}
+
+#Video {
     padding: 40px 0;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 30px;
 }
 
 .h11 h1 {
@@ -30,44 +45,84 @@
     font-size: 23px;
     letter-spacing: 0.03em;
     font-weight: 700;
-    margin-bottom: 2pc;
+    margin-bottom: 20px;
 }
 
 .video-df {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    flex-wrap: wrap;
-    gap: 2.5pc;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
 }
-.video-bg {
-    background-color: aqua;
+
+.vs-video img {
     width: 100%;
+    max-height: 100%;
+    height: auto;
+    filter: blur(6px);
+    opacity: 0.8;
+    position: absolute;
+    z-index: 1;
 }
+
+.video-bg {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
 .vs-video {
-    padding: 3pc;
+    padding: 30px;
+    position: relative;
+    z-index: 2;
+    height: 350px;
 }
+
 .vs-video h1 {
-    width: 16pc;
+    font-size: 32px;
     color: white;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 2;
 }
 
 .video-text {
     display: flex;
-    gap: 3pc;
-    padding: 1pc 0;
+    gap: 80px;
+    padding: 10px 0;
+    position: relative;
+    z-index: 2;
+    margin-top: 40px;
 }
+
 .video-text span {
-    font-size: 1pc;
+    font-size: 16px;
+    font-weight: 300;
     color: white;
 }
 
 .video-text h2 {
     color: white;
     font-size: 20px;
+    font-weight: 800;
+    margin: 0;
 }
+
 @media screen and (max-width: 1100px) {
     .video-df {
         grid-template-columns: 1fr;
+    }
+
+    .btn-vkb {
+        justify-content: center;
+    }
+
+    .vs-video h1 {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 1100px) {
+    .video-text {
+        flex-direction: column;
     }
 }

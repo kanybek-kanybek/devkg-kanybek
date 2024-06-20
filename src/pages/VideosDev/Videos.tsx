@@ -1,8 +1,9 @@
+import React from "react";
 import Footer from "../../components/footer/footer";
 import Header from "../../components/header/header";
 import "./Videos.css";
 
-function Video() {
+const Video: React.FC = () => {
     return (
         <>
             <Header />
@@ -18,9 +19,15 @@ function Video() {
                         <div className="video-df">
                             <div className="video-bg">
                                 <div className="vs-video">
+                                    <img
+                                        src="https://i.ytimg.com/vi_webp/C2ICic8y5D8/maxresdefault.webp"
+                                        alt="img"
+                                    />
                                     <h1>
-                                        ChatGPT — революция или мода? Как
-                                        нейросети могут помочь в работе
+                                        ChatGPT — <br />
+                                        революция или <br /> мода? Как нейросети{" "}
+                                        <br />
+                                        могут помочь в <br /> работе
                                     </h1>
                                     <div className="video-text">
                                         <h2>
@@ -36,9 +43,15 @@ function Video() {
                             </div>
                             <div className="video-bg">
                                 <div className="vs-video">
+                                    <img
+                                        src="https://i.ytimg.com/vi_webp/C2ICic8y5D8/maxresdefault.webp"
+                                        alt="img"
+                                    />
                                     <h1>
-                                        ChatGPT — революция или мода? Как
-                                        нейросети могут помочь в работе
+                                        ChatGPT — <br />
+                                        революция или <br /> мода? Как нейросети{" "}
+                                        <br />
+                                        могут помочь в <br /> работе
                                     </h1>
                                     <div className="video-text">
                                         <h2>
@@ -59,5 +72,6 @@ function Video() {
             <Footer />
         </>
     );
-}
+};
+
 export default Video;
