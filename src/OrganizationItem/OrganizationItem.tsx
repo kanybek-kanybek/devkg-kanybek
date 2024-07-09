@@ -1,78 +1,117 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import "./OrganizationItem.css";
+import useFetch from "../Hooks/useFetch";
+import { Job } from "../Hooks/types";
 
-interface Vacancy {
-  id: number;
-  logo?: string;
-  organization: string;
-  office: string;
-  salary: string | number;
-  jobType: string;
-  numVacancies?: number;
-  numEvents?: number;
-  numVideos?: number;
+function Vacancies() {
+    const { data, isLoading } = useFetch({
+        url: "http://3.38.98.134/organizations",
+    });
+    const [, setCompanyNames] = useState<string[]>([]);
+
+    useEffect(() => {
+        if (Array.isArray(data) && data.length > 0) {
+            const names = data.map(
+                (job: Job) => job.organization_name || "Не указано"
+            );
+            setCompanyNames(names);
+        }
+    }, [data]);
+
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
+    console.log(data);
+
+    return (
+        <>
+            <div id="vacancies">
+                <div className="container">
+                    <div className="vacancies__content">
+                        {Array.isArray(data) &&
+                            data.map((job: Job, index: number) => (
+                                <a
+                                    key={index}
+                                    href={`/ru/jobs/${job.slug}`}
+                                    className="link"
+                                >
+                                    <div
+                                        className="jobs-item content"
+                                        data-v-6dc437e8
+                                    >
+                                        <div
+                                            className="information"
+                                            data-v-6dc437e8
+                                        >
+                                            <div
+                                                className="jobs-item-field icon company"
+                                                data-v-6dc437e8
+                                            >
+                                                {job.icon && (
+                                                    <img
+                                                        src={job.icon}
+                                                        alt={`${job.name} logo`}
+                                                        className="image"
+                                                    />
+                                                )}
+                                            </div>
+                                            <div
+                                                className="jobs-item-field company"
+                                                data-v-6dc437e8
+                                            >
+                                                <h5
+                                                    className="label"
+                                                    data-v-6dc437e8
+                                                >
+                                                    <p>Компания</p>
+                                                    {job.name || "Не указано"}
+                                                </h5>
+                                            </div>
+                                            <div
+                                                className="jobs-item-field position"
+                                                data-v-6dc437e8
+                                            >
+                                                <h5
+                                                    className="label"
+                                                    data-v-6dc437e8
+                                                >
+                                                    <p>Ваканции</p>
+                                                    {job.jobs_count}
+                                                </h5>
+                                            </div>
+                                            <div
+                                                className="jobs-item-field price"
+                                                data-v-6dc437e8
+                                            >
+                                                <h5
+                                                    className="label"
+                                                    data-v-6dc437e8
+                                                >
+                                                    <p>Мероприятия</p>
+                                                    {job.events_count}
+                                                </h5>
+                                            </div>
+                                            <div
+                                                className="jobs-item-field type"
+                                                data-v-6dc437e8
+                                            >
+                                                <h5
+                                                    className="label"
+                                                    data-v-6dc437e8
+                                                >
+                                                    <p>Видео</p>
+                                                    {job.meetups_count}
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            ))}
+                    </div>
+                </div>
+            </div>
+        </>
+    );
 }
 
-const generateRandomValue = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
-
-const OrganizationItem: React.FC = () => {
-  const [data, setData] = useState<Vacancy[]>([]);
-  const navigate = useNavigate();
-
-  const handleVacancyClick = (id: number) => {
-    navigate(`/JobPage/${id}`);
-  };
-
-  useEffect(() => {
-    axios("https://01de09931cc9286e.mokky.dev/allvakansies")
-      .then((res) => {
-        const fetchedData = res.data.map((vacancy: Vacancy) => ({
-          ...vacancy,
-          numVacancies: generateRandomValue(1, 10),
-          numEvents: generateRandomValue(1, 5),
-          numVideos: generateRandomValue(1, 3),
-        }));
-        setData(fetchedData);
-      })
-      .catch((err) => {
-        console.error("Error fetching data:", err);
-      });
-  }, []);
-
-  return (
-    <div>
-      {data.map((vacancy) => (
-        <div className="organization__item" key={vacancy.id} onClick={() => handleVacancyClick(vacancy.id)}>
-          <div className="organizationItem_left">
-            <div className="organization_logo">
-              <img src={vacancy.logo} alt="Organization Logo" />
-            </div>
-            <div className="organization_details">
-              <b className="organization__title">Компания</b>
-              <b className="organization__name">{vacancy.organization}</b>
-            </div>
-          </div>
-
-          <div className="organizationItem_right">
-            <div className="organization_details">
-              <b className="organization__title">Вакансий: </b>
-              <b className="organization__num">{vacancy.numVacancies}</b>
-            </div>
-            <div className="organization_details">
-              <b className="organization__title">Мероприятий: </b>
-              <b className="organization__num">{vacancy.numEvents}</b>
-            </div>
-            <div className="organization_details">
-              <b className="organization__title">Видео: </b>
-              <b className="organization__num">{vacancy.numVideos}</b>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-};
-
-export default OrganizationItem;
+export default Vacancies;
