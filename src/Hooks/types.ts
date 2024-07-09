@@ -22,4 +22,11 @@ export interface Job {
     title: string;
     cover: string;
     cover_formats: [null];
+    icon: string;
+
+    name: string;
+
+    jobs_count: number;
+    events_count: number;
+    meetups_count: number;
 }

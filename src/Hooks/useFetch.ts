@@ -9,7 +9,7 @@ interface UseFetchResult {
 
 const useFetch = (
     { url } = {
-        url: "http://3.34.200.34",
+        url: "http://3.38.98.134/",
     }
 ): UseFetchResult => {
     const [data, setData] = useState<Job[]>([]);

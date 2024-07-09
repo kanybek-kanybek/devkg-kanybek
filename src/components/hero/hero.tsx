@@ -6,7 +6,7 @@ import { Job } from "../../Hooks/types"; // Here you import Job interface
 
 function Hero() {
     const { data, isLoading } = useFetch({
-        url: "http://3.34.200.34/events",
+        url: "http://3.38.98.134/events",
     });
     const [, setCompanyNames] = useState<string[]>([]);
 

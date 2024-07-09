@@ -5,7 +5,7 @@ import { Job } from "../../Hooks/types";
 
 function Vacancies() {
     const { data, isLoading } = useFetch({
-        url: "http://3.34.200.34/jobs",
+        url: "http://3.38.98.134/jobs",
     });
     const [, setCompanyNames] = useState<string[]>([]);
 

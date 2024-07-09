@@ -25,7 +25,7 @@
     opacity: 0.8;
     position: absolute;
     z-index: 1;
-    width: 81%;
+    width: 61%;
     height: 435px;
 }
 
@@ -97,6 +97,12 @@
     z-index: 2;
     position: relative;
 }
+@media screen and (max-width: 1445px) {
+    .hero__logo img {
+        width: 81%;
+    }
+}
+
 @media screen and (max-width: 500px) {
     .hero__logo__text h2 {
         font-size: 30px;
