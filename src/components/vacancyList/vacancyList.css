@@ -48,7 +48,7 @@ a {
 }
 
 .jobs-item-field.company {
-    flex: 1;
+    flex: 0.3;
 }
 
 .jobs-item-field.position {

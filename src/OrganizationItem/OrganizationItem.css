@@ -5,15 +5,17 @@
     padding: 21px;
     background: #f1f4f9;
 }
-
-.organization_logo {
-    max-width: 32px;
-    max-height: 32px;
+.content__organization {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 21px;
+    background: #f1f4f9;
 }
 
 .organization_logo img {
-    width: 100%;
-    height: 100%;
+    width: 30%;
+    height: 50%;
 }
 
 .organizationItem_right {

@@ -21,7 +21,6 @@ function Vacancies() {
     if (isLoading) {
         return <div>Loading...</div>;
     }
-    console.log(data);
 
     return (
         <>
@@ -36,7 +35,7 @@ function Vacancies() {
                                     className="link"
                                 >
                                     <div
-                                        className="jobs-item content"
+                                        className="content__organization"
                                         data-v-6dc437e8
                                     >
                                         <div
@@ -44,7 +43,7 @@ function Vacancies() {
                                             data-v-6dc437e8
                                         >
                                             <div
-                                                className="jobs-item-field icon company"
+                                                className="organization_logo"
                                                 data-v-6dc437e8
                                             >
                                                 {job.icon && (
