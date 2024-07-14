@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import "./OrganizationItem.css";
-import useFetch from "../Hooks/useFetch";
-import { Job } from "../Hooks/types";
+import "../OrganizationItem/OrganizationItem.css";
+import useFetch from "../../Hooks/useFetch";
+import { Job } from "../../Hooks/types";
 
-function Vacancies() {
+function OrganizationItem() {
     const { data, isLoading } = useFetch({
         url: "http://3.38.98.134/organizations",
     });
@@ -113,4 +113,4 @@ function Vacancies() {
     );
 }
 
-export default Vacancies;
+export default OrganizationItem;

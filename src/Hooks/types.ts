@@ -27,11 +27,11 @@ export interface Job {
     jobs_count: number;
     events_count: number;
     meetups_count: number;
-    telegram_chats: Array<{ title: string; url: string }>;
-    telegram_channels: Array<{ title: string; url: string }>;
-    websites: Array<{ title: string; url: string }>;
-    facebook: Array<{ title: string; url: string }>;
-    youtube: Array<{ title: string; url: string }>;
-    github: Array<{ title: string; url: string }>;
+    telegram_chats: Array<{ label: string; value: string }>;
+    telegram_channels: Array<{ label: string; value: string }>;
+    websites: Array<{ label: string; value: string }>;
+    facebook: Array<{ label: string; value: string }>;
+    youtube: Array<{ label: string; value: string }>;
+    github: Array<{ label: string; value: string }>;
     devkg: Array<{ label: string; value: string }>;
 }

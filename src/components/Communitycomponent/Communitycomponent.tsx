@@ -18,6 +18,11 @@ function Communitycomponent() {
         return <div>Loading...</div>;
     }
 
+    if (!data || !Array.isArray(data)) {
+        return <div>Маалыматтар алынган жок же структура туура эмес</div>;
+    }
+    console.log(data);
+
     return (
         <div className="Communitycomponent">
             <div className="container">
@@ -25,30 +30,30 @@ function Communitycomponent() {
                     Наши ресурсы в Telegram
                 </h4>
                 {data.map((job: Job, index: number) => (
-                    <a
-                        key={index}
-                        href={`/ru/jobs/${job.slug}`}
-                        className="link"
-                    >
-                        <div className="content">
-                            <div className="content__resources">
-                                <div className="content__resources_resources">
-                                    {Array.isArray(job.devkg) &&
-                                        job.devkg.map((job, idx) => (
-                                            <div key={idx}>
-                                                <a
-                                                    href={job.value}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                >
-                                                    {job.label}
-                                                </a>
-                                            </div>
-                                        ))}
-                                </div>
+                    <div className="content">
+                        <div className="content__resources">
+                            <div className="content__resources_resources_reources">
+                                {Array.isArray(job.devkg) &&
+                                    job.devkg.map((chat, idx) => (
+                                        <div key={idx} className="chat__block">
+                                            <img
+                                                src="https://yt3.googleusercontent.com/ANGnp5haaIF0osQ364o2QZ8vbMdsyWDkvlAcXkkvJXy2UpmauPnWFfLd1w0mEcaXncJpR7_j=s160-c-k-c0x00ffffff-no-rj"
+                                                alt=""
+                                            />
+                                            <a
+                                                href={chat.value}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                <div className="chat-label">
+                                                    <p>{chat.label}</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    ))}
                             </div>
                         </div>
-                    </a>
+                    </div>
                 ))}
             </div>
         </div>
@@ -56,3 +61,5 @@ function Communitycomponent() {
 }
 
 export default Communitycomponent;
+// import { FaTelegramPlane } from "react-icons/fa";
+// <FaTelegramPlane />
