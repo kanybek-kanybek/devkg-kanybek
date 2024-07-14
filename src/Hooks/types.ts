@@ -21,12 +21,17 @@ export interface Job {
     location: string;
     title: string;
     cover: string;
-    cover_formats: [null];
+    cover_formats: Array<null | { type: string; url: string }>;
     icon: string;
-
     name: string;
-
     jobs_count: number;
     events_count: number;
     meetups_count: number;
+    telegram_chats: Array<{ label: string; value: string }>;
+    telegram_channels: Array<{ label: string; value: string }>;
+    websites: Array<{ label: string; value: string }>;
+    facebook: Array<{ label: string; value: string }>;
+    youtube: Array<{ label: string; value: string }>;
+    github: Array<{ label: string; value: string }>;
+    devkg: Array<{ label: string; value: string }>;
 }

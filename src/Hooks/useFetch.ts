@@ -22,7 +22,7 @@ const useFetch = (
             const response = await fetch(url);
             const result = await response.json();
             console.log("API response:", result);
-            if (result.success) {
+            if (result.statusCode === 200) {
                 setData(result.data as Job[]);
                 console.log("Jobs data:", result.data);
             }
