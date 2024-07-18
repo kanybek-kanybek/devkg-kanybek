@@ -1,46 +1,19 @@
-.organization__item {
+.organization__content {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    padding: 21px;
     background: #f1f4f9;
-}
-.content__organization {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    margin-bottom: 2px;
     padding: 21px;
-    background: #f1f4f9;
 }
-
-.organization_logo img {
-    width: 30%;
-    height: 50%;
-}
-
-.organizationItem_right {
+.content__info__one {
     display: flex;
-    gap: 12px;
+    align-items: center;
 }
-
-.organizationItem_left {
+.content__info__two {
     display: flex;
-    gap: 12px;
+    align-items: center;
 }
-
-.organization_details {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.organization__title {
-    color: #a5a3a3;
-    font-size: 16px;
-}
-
-.organization__num,
-.organization__name {
-    color: #191f9d;
-    font-size: 18px;
+.info__logo img {
+    width: 32px;
+    height: 32px;
 }

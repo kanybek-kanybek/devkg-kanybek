@@ -26,87 +26,87 @@ function OrganizationItem() {
         <>
             <div id="vacancies">
                 <div className="container">
-                    <div className="vacancies__content">
-                        {Array.isArray(data) &&
-                            data.map((job: Job, index: number) => (
-                                <a
-                                    key={index}
-                                    href={`/ru/jobs/${job.slug}`}
-                                    className="link"
+                    {Array.isArray(data) &&
+                        data.map((job: Job, index: number) => (
+                            <a
+                                key={index}
+                                href={`/ru/jobs/${job.slug}`}
+                                className="link"
+                            >
+                                <div
+                                    className="organization__content"
+                                    data-v-6dc437e8
                                 >
                                     <div
-                                        className="content__organization"
+                                        className="content__info__one"
                                         data-v-6dc437e8
                                     >
                                         <div
-                                            className="information"
+                                            className="info__logo"
                                             data-v-6dc437e8
                                         >
-                                            <div
-                                                className="organization_logo"
+                                            {job.icon && (
+                                                <img
+                                                    src={job.icon}
+                                                    alt={`${job.name} logo`}
+                                                    className="image"
+                                                />
+                                            )}
+                                        </div>
+                                        <div
+                                            className="info__company"
+                                            data-v-6dc437e8
+                                        >
+                                            <h5
+                                                className="label"
                                                 data-v-6dc437e8
                                             >
-                                                {job.icon && (
-                                                    <img
-                                                        src={job.icon}
-                                                        alt={`${job.name} logo`}
-                                                        className="image"
-                                                    />
-                                                )}
-                                            </div>
-                                            <div
-                                                className="jobs-item-field company"
-                                                data-v-6dc437e8
-                                            >
-                                                <h5
-                                                    className="label"
-                                                    data-v-6dc437e8
-                                                >
-                                                    <p>Компания</p>
-                                                    {job.name || "Не указано"}
-                                                </h5>
-                                            </div>
-                                            <div
-                                                className="jobs-item-field position"
-                                                data-v-6dc437e8
-                                            >
-                                                <h5
-                                                    className="label"
-                                                    data-v-6dc437e8
-                                                >
-                                                    <p>Ваканции</p>
-                                                    {job.jobs_count}
-                                                </h5>
-                                            </div>
-                                            <div
-                                                className="jobs-item-field price"
-                                                data-v-6dc437e8
-                                            >
-                                                <h5
-                                                    className="label"
-                                                    data-v-6dc437e8
-                                                >
-                                                    <p>Мероприятия</p>
-                                                    {job.events_count}
-                                                </h5>
-                                            </div>
-                                            <div
-                                                className="jobs-item-field type"
-                                                data-v-6dc437e8
-                                            >
-                                                <h5
-                                                    className="label"
-                                                    data-v-6dc437e8
-                                                >
-                                                    <p>Видео</p>
-                                                    {job.meetups_count}
-                                                </h5>
-                                            </div>
+                                                <p>Компания</p>
+                                                {job.name || "Не указано"}
+                                            </h5>
                                         </div>
                                     </div>
-                                </a>
-                            ))}
-                    </div>
+                                    <div className="content__info__two">
+                                        <div
+                                            className="info__position"
+                                            data-v-6dc437e8
+                                        >
+                                            <h5
+                                                className="label"
+                                                data-v-6dc437e8
+                                            >
+                                                <p>Ваканции</p>
+                                                {job.jobs_count}
+                                            </h5>
+                                        </div>
+                                        <div
+                                            className="info__price"
+                                            data-v-6dc437e8
+                                        >
+                                            <h5
+                                                className="label"
+                                                data-v-6dc437e8
+                                            >
+                                                <p>Мероприятия</p>
+                                                {job.events_count}
+                                            </h5>
+                                        </div>
+                                        <div
+                                            className="ifno__type"
+                                            data-v-6dc437e8
+                                        >
+                                            <h5
+                                                className="label"
+                                                data-v-6dc437e8
+                                            >
+                                                <p>Видео</p>
+                                                {job.meetups_count}
+                                            </h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        ))}
                 </div>
             </div>
         </>

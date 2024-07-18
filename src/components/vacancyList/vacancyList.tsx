@@ -42,7 +42,7 @@ function Vacancies() {
                                         data-v-6dc437e8
                                     >
                                         <div
-                                            className="jobs-item-field icon company"
+                                            className="company__icon"
                                             data-v-6dc437e8
                                         >
                                             {job.organization_icon && (
@@ -53,54 +53,58 @@ function Vacancies() {
                                                 />
                                             )}
                                         </div>
-                                        <div
-                                            className="jobs-item-field company"
-                                            data-v-6dc437e8
-                                        >
-                                            <span
-                                                className="label"
+                                        <div className="information__title">
+                                            <div
+                                                className="jobs-item-field company"
                                                 data-v-6dc437e8
                                             >
-                                                <p>Компания</p>
-                                            </span>
-                                            {job.organization_name ||
-                                                "Не указано"}
-                                        </div>
-                                        <div
-                                            className="jobs-item-field position"
-                                            data-v-6dc437e8
-                                        >
-                                            <span
-                                                className="label"
+                                                <h2
+                                                    className="label"
+                                                    data-v-6dc437e8
+                                                >
+                                                    <h6>Компания</h6>
+                                                    <p>
+                                                        {job.organization_name ||
+                                                            "Не указано"}
+                                                    </p>
+                                                </h2>
+                                            </div>
+                                            <div
+                                                className="jobs-item-field position"
                                                 data-v-6dc437e8
                                             >
-                                                <p>Должность</p>
-                                            </span>
-                                            {job.position}
-                                        </div>
-                                        <div
-                                            className="jobs-item-field price"
-                                            data-v-6dc437e8
-                                        >
-                                            <span
-                                                className="label"
+                                                <h2
+                                                    className="label"
+                                                    data-v-6dc437e8
+                                                >
+                                                    <h6>Должность</h6>
+                                                    <p>{job.position}</p>
+                                                </h2>
+                                            </div>
+                                            <div
+                                                className="jobs-item-field price"
                                                 data-v-6dc437e8
                                             >
-                                                <p>Оклад</p>
-                                            </span>
-                                            {job.salary}
-                                        </div>
-                                        <div
-                                            className="jobs-item-field type"
-                                            data-v-6dc437e8
-                                        >
-                                            <span
-                                                className="label"
+                                                <h2
+                                                    className="label"
+                                                    data-v-6dc437e8
+                                                >
+                                                    <h6>Оклад</h6>
+                                                    <p>{job.salary}</p>
+                                                </h2>
+                                            </div>
+                                            <div
+                                                className="jobs-item-field type"
                                                 data-v-6dc437e8
                                             >
-                                                <p>Тип</p>
-                                            </span>
-                                            {job.type}
+                                                <h2
+                                                    className="label"
+                                                    data-v-6dc437e8
+                                                >
+                                                    <h6>Тип</h6>
+                                                    <p>{job.type}</p>
+                                                </h2>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
