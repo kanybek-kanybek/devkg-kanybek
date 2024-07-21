@@ -1,0 +1,54 @@
+.group {
+    display: flex;
+    line-height: 30px;
+    align-items: center;
+    position: relative;
+    max-width: 200px;
+}
+.login__input__email input {
+    padding-left: 30px;
+    width: 100%;
+    background: transparent;
+    color: white;
+    font-size: 1.1em;
+    padding: 15px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    width: 21pc;
+}
+.login__input__password input {
+    padding-left: 30px;
+    width: 100%;
+    background: transparent;
+    color: rgb(255, 255, 255);
+    font-size: 1.1em;
+    padding: 15px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.icon {
+    position: absolute;
+    left: 1rem;
+    fill: none;
+    width: 1rem;
+    height: 1rem;
+}
+.login__button {
+    width: 150px;
+    height: 5%;
+    border: 3px solid #315cfd;
+    border-radius: 30px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: white;
+    font-size: 1.2em;
+    font-weight: 550;
+    font-family: "Montserrat", sans-serif;
+}
+
+.login__button :hover {
+    background: #31fd75;
+    color: white;
+    font-size: 1.5em;
+}

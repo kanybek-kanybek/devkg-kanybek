@@ -1,19 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { SlArrowRightCircle } from "react-icons/sl";
 import { VscClose } from "react-icons/vsc";
 import "./header.css";
+import Cookies from "js-cookie";
 
 function Header() {
     const [isBurgerOpen, setIsBurgerOpen] = useState(false);
-    const navigate = useNavigate();
+    const [loggedIn, setLoggedIn] = useState(false);
 
+    useEffect(() => {
+        const token = Cookies.get("token");
+        if (token) {
+            setLoggedIn(true);
+        } else {
+            setLoggedIn(false);
+        }
+    }, []);
+
+    const navigate = useNavigate();
+    const navigateLogin = useNavigate();
     function logoHeader() {
         navigate("/");
     }
 
     function toggleBurgerMenu() {
         setIsBurgerOpen(!isBurgerOpen);
+    }
+    function clickLogin() {
+        navigateLogin("/Sinup/:id");
     }
 
     return (
@@ -107,7 +122,7 @@ function Header() {
                             </nav>
                         </div>
                         <div className="header__enter">
-                            <button>
+                            <button onClick={clickLogin}>
                                 <span>
                                     <SlArrowRightCircle />
                                 </span>
