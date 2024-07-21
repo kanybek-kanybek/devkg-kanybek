@@ -40,7 +40,6 @@ function CommunitycomponentChats() {
                                             <span>
                                                 <FaYoutube />
                                             </span>
-
                                             <a
                                                 href={chat.value}
                                                 target="_blank"

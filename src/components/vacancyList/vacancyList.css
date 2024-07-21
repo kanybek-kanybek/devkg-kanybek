@@ -22,10 +22,25 @@ a {
     margin: 0 auto;
     width: 100%;
 }
-
+.company__icon {
+    padding: 10px 30px 10px 30px;
+    flex: 0.1;
+    /* width: 30px;
+    height: 30px; */
+}
+.company__icon img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    margin-top: 0px;
+}
 .information {
     display: flex;
+}
+.information__title {
+    display: flex;
     flex-wrap: wrap;
+    flex: 2;
 }
 
 .jobs-item-field {
@@ -47,24 +62,35 @@ a {
 }
 
 .jobs-item-field.company {
-    flex: 0.3;
+    display: flex;
+    justify-content: center;
+    flex: 2;
 }
 
 .jobs-item-field.position {
-    flex: 1;
+    flex: 3;
+    display: flex;
+    justify-content: center;
 }
 
 .jobs-item-field.price {
-    flex: 1;
+    flex: 2;
+    display: flex;
+    justify-content: center;
 }
 
 .jobs-item-field.type {
-    flex: 1;
+    flex: 2;
+    display: flex;
+    justify-content: center;
 }
 .label p {
-    color: #a7b0c2;
     font-size: 14px;
     left: 0px;
+}
+.label h6 {
+    color: #a7b0c2;
+    font-style: 10px;
 }
 
 @media (min-width: 0) and (max-width: 900px) {
@@ -85,12 +111,34 @@ a {
         margin-bottom: 10px;
     }
 }
+@media (min-width: 0) and (max-width: 768px) {
+    .information {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .jobs-item .jobs-item-field {
+        padding-right: 10px;
+        margin-bottom: 10px;
+    }
+
+    .jobs-item .information .jobs-item-field {
+        flex: 0 0 100%;
+    }
+
+    .jobs-item .jobs-item-field.icon {
+        align-items: flex-start;
+        flex: 0 0 50px;
+    }
+    .company__icon img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        margin-top: 0px;
+    }
+}
 
 @media (min-width: 0) and (max-width: 576px) {
-    /* .content {
-        padding: 10px;
-    } */
-
     .jobs-item .jobs-item-field {
         padding-right: 10px;
         margin-bottom: 10px;
@@ -117,4 +165,6 @@ a {
     max-height: 50px;
     margin-right: 10px;
     object-fit: contain;
+}
+@media (min-width: 0) and (max-width: 320px) {
 }
