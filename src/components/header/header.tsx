@@ -1,19 +1,34 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { SlArrowRightCircle } from "react-icons/sl";
 import { VscClose } from "react-icons/vsc";
 import "./header.css";
+import Cookies from "js-cookie";
 
 function Header() {
     const [isBurgerOpen, setIsBurgerOpen] = useState(false);
-    const navigate = useNavigate();
+    const [loggedIn, setLoggedIn] = useState(false);
 
+    useEffect(() => {
+        const token = Cookies.get("token");
+        if (token) {
+            setLoggedIn(true);
+        } else {
+            setLoggedIn(false);
+        }
+    }, []);
+
+    const navigate = useNavigate();
+    const navigateLogin = useNavigate();
     function logoHeader() {
         navigate("/");
     }
 
     function toggleBurgerMenu() {
         setIsBurgerOpen(!isBurgerOpen);
+    }
+    function clickLogin() {
+        navigateLogin("/Sinup/:id");
     }
 
     return (
@@ -106,7 +121,7 @@ function Header() {
                                 </div>
                             </nav>
                         </div>
-                        <div className="header__enter">
+                        <div onClick={clickLogin} className="header__enter">
                             <button>
                                 <span>
                                     <SlArrowRightCircle />
@@ -114,7 +129,10 @@ function Header() {
                                 Войти
                             </button>
                         </div>
-                        <div className="header__enter__two">
+                        <div
+                            onClick={clickLogin}
+                            className="header__enter__two"
+                        >
                             <span>
                                 <SlArrowRightCircle />
                             </span>

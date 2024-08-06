@@ -4,14 +4,26 @@
     background: #f1f4f9;
     margin-bottom: 2px;
     padding: 21px;
+    color: #191f5d;
+    font-weight: 700;
+    font-size: 18px;
+}
+.organization__content p {
+    color: #a7b0c2;
+    font-size: 14px;
 }
 .content__info__one {
     display: flex;
     align-items: center;
+    gap: 20px;
 }
 .content__info__two {
     display: flex;
+    gap: 15px;
     align-items: center;
+}
+.info__logo {
+    width: 50px;
 }
 .info__logo img {
     width: 32px;

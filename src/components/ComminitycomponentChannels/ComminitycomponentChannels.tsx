@@ -3,6 +3,7 @@ import useFetch from "../../Hooks/useFetch";
 import { Job } from "../../Hooks/types";
 import { FaTelegramPlane } from "react-icons/fa";
 import "../ComminitycomponentChannels/ComminitycomponentChannels.css";
+import { RiLoaderFill } from "react-icons/ri";
 
 function CommunitycomponentChats() {
     const { data, isLoading } = useFetch({
@@ -20,7 +21,11 @@ function CommunitycomponentChats() {
     }
 
     if (!data || !Array.isArray(data)) {
-        return <div>Маалыматтар алынган жок же структура туура эмес</div>;
+        return (
+            <div>
+                <RiLoaderFill />
+            </div>
+        );
     }
 
     return (

@@ -1,3 +1,4 @@
+import { RiLoaderFill } from "react-icons/ri";
 import { useEffect } from "react";
 import useFetch from "../../Hooks/useFetch";
 import { Job } from "../../Hooks/types";
@@ -20,7 +21,11 @@ function CommunitycomponentChats() {
     }
 
     if (!data || !Array.isArray(data)) {
-        return <div>Маалыматтар алынган жок же структура туура эмес</div>;
+        return (
+            <div>
+                <RiLoaderFill />
+            </div>
+        );
     }
 
     return (

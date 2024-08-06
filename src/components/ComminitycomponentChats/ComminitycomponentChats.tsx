@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import useFetch from "../../Hooks/useFetch";
 import { Job } from "../../Hooks/types";
 import { FaTelegramPlane } from "react-icons/fa";
+import { RiLoaderFill } from "react-icons/ri";
 import "../ComminitycomponentChats/ComminitycomponentChats.css";
 
 function CommunitycomponentChats() {
@@ -16,7 +17,11 @@ function CommunitycomponentChats() {
     }, [data]);
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return (
+            <div>
+                <RiLoaderFill />
+            </div>
+        );
     }
 
     if (!data || !Array.isArray(data)) {
