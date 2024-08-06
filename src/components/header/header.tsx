@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { SlArrowRightCircle } from "react-icons/sl";
 import { VscClose } from "react-icons/vsc";
 import "./header.css";
@@ -121,15 +121,18 @@ function Header() {
                                 </div>
                             </nav>
                         </div>
-                        <div className="header__enter">
-                            <button onClick={clickLogin}>
+                        <div onClick={clickLogin} className="header__enter">
+                            <button>
                                 <span>
                                     <SlArrowRightCircle />
                                 </span>
                                 Войти
                             </button>
                         </div>
-                        <div className="header__enter__two">
+                        <div
+                            onClick={clickLogin}
+                            className="header__enter__two"
+                        >
                             <span>
                                 <SlArrowRightCircle />
                             </span>
