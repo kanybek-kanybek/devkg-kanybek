@@ -12,7 +12,7 @@ function OrganizationItem() {
     useEffect(() => {
         if (Array.isArray(data) && data.length > 0) {
             const names = data.map(
-                (job: Job) => job.organization_name || "Не указано"
+                (job: Job) => job.organization || "Не указано"
             );
             setCompanyNames(names);
         }

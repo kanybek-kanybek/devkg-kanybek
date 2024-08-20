@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import "./JobPage.css";
 import Header from "../header/header";
@@ -22,12 +22,14 @@ interface Vacancy {
 function JobPage() {
     const { id } = useParams<{ id: string }>();
     const [vacancy, setVacancy] = useState<Vacancy | null>(null);
+    console.log(vacancy);
+    const navigatePage = useNavigate();
 
     useEffect(() => {
         axios
-            .get(`https://01de09931cc9286e.mokky.dev/allvakansies/${id}`)
+            .get(`http://3.38.98.134/events/${id}`)
             .then((response) => {
-                setVacancy(response.data);
+                setVacancy(response.data.data);
             })
             .catch((error) => {
                 console.error("Failed to fetch vacancy:", error);
@@ -39,7 +41,7 @@ function JobPage() {
             e.stopPropagation();
 
             axios
-                .delete(`https://01de09931cc9286e.mokky.dev/allvakansies/${id}`)
+                .delete(`http://3.38.98.134/events/${id}`)
                 .then(() => {
                     setVacancy(null);
                 })
@@ -49,9 +51,16 @@ function JobPage() {
         },
         []
     );
+    function clickPageHandler() {
+        navigatePage("/JobOpenings");
+    }
 
     if (!vacancy) {
-        return <div className="vacancy-not-found">Вакансия удален</div>;
+        return (
+            <div className="vacancy-not-found">
+                Вакансия удален <button onClick={clickPageHandler}>back</button>
+            </div>
+        );
     }
 
     return (

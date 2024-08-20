@@ -14,7 +14,7 @@ const Video: React.FC = () => {
     useEffect(() => {
         if (Array.isArray(data) && data.length > 0) {
             const names = data.map(
-                (job: Job) => job.organization_name || "Не указано"
+                (job: Job) => job.organization || "Не указано"
             );
             setCompanyNames(names);
         }
@@ -58,7 +58,7 @@ const Video: React.FC = () => {
                                                                 Организатор
                                                             </span>
                                                             <br />
-                                                            {job.organization_name ||
+                                                            {job.organization ||
                                                                 "Не указано"}
                                                         </h2>
                                                         <h2>

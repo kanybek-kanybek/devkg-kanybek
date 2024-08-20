@@ -1,96 +1,89 @@
 import { useState } from "react";
-import axios from "axios";
-import "../sinup/sinup.css";
 import Cookies from "js-cookie";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
+import "../sinup/sinup.css";
 
-const loginApi = "http://3.38.98.134/auth/login";
+const loginAPI = "http://3.38.98.134/auth/login";
 
-function Sinup() {
+const Sinup = () => {
+    const navigate = useNavigate();
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            const response = await axios.post(loginApi, {
+            const response = await axios.post(loginAPI, {
                 userName: userName,
                 password: password,
             });
             if (response.data.success) {
                 Cookies.set("token", response.data.token, { expires: 7 });
-                alert(response.data.message);
-            } else {
-                alert("Login failed: " + response.data.message);
+                navigate("/");
             }
-        } catch (error: any) {
-            console.error("Error during login:", error);
-            if (error.response) {
-                console.error("Response data:", error.response.data);
-                console.error("Response status:", error.response.status);
-                console.error("Response headers:", error.response.headers);
-                alert("Server error: " + error.response.data.message);
-            } else if (error.request) {
-                console.error("Request data:", error.request);
-                alert("No response from server. Please try again later.");
-            } else {
-                console.error("Error message:", error.message);
-                alert("Error in setting up the request: " + error.message);
-            }
+            alert(response.data.message);
+            navigate("/addVacancy");
+        } catch (error) {
+            alert("Login bolbodu");
         }
     };
 
     return (
         <>
             <Header />
-            <form onSubmit={handleLogin}>
-                <div className="container">
-                    <div
-                        className="login__content"
-                        style={{
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            height: "100vh",
-                            background: "rgb(22, 21, 21)",
-                        }}
-                    >
-                        <div className="login__content__inputs">
-                            <div className="login__input__email">
-                                <input
-                                    type="text"
-                                    name="username"
-                                    value={userName}
-                                    onChange={(e) =>
-                                        setUserName(e.target.value)
-                                    }
-                                    placeholder="Введите email или телефон"
-                                />
-                            </div>
-                            <div className="login__input__password">
-                                <div className="group">
-                                    <input
-                                        name="password"
-                                        value={password}
-                                        onChange={(e) =>
-                                            setPassword(e.target.value)
-                                        }
-                                        className="input"
-                                        type="password"
-                                        placeholder="password"
-                                    />
-                                    <div />
-                                </div>
-                            </div>
-                            <button className="login__button">Save</button>
+            <div className="container">
+                <div className="login-content">
+                    <div className="login">
+                        <h1>Войти</h1>
+                        <form onSubmit={handleLogin}>
+                            <input
+                                type="text"
+                                id="username"
+                                value={userName}
+                                onChange={(e) => setUserName(e.target.value)}
+                                name="username"
+                                placeholder="Email пользователя"
+                            />
+                            <input
+                                type="password"
+                                id="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                name="password"
+                                placeholder="Пароль"
+                            />
+                            <button className="btn-login" type="submit">
+                                Войти
+                            </button>
+                        </form>
+                        <div
+                            style={{
+                                marginTop: "20px",
+                                display: "flex",
+                                justifyContent: "center",
+                                flexDirection: "column",
+                                alignItems: "center",
+                            }}
+                        >
+                            <h1 className="title-NotLoggedIn">Не вошел?</h1>
+                            <a
+                                style={{
+                                    fontSize: 16,
+                                    paddingTop: 10,
+                                }}
+                                href="/signup"
+                            >
+                                Зарегистрироваться
+                            </a>
                         </div>
                     </div>
                 </div>
-            </form>
+            </div>
             <Footer />
         </>
     );
-}
-
+};
 export default Sinup;
