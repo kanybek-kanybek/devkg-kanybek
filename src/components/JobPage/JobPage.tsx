@@ -22,7 +22,6 @@ interface Vacancy {
 function JobPage() {
     const { id } = useParams<{ id: string }>();
     const [vacancy, setVacancy] = useState<Vacancy | null>(null);
-    console.log(vacancy);
     const navigatePage = useNavigate();
 
     useEffect(() => {
