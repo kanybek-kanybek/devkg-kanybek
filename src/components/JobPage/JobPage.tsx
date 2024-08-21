@@ -6,17 +6,17 @@ import Header from "../header/header";
 import Footer from "../footer/footer";
 
 interface Vacancy {
-    logo: string;
+    organization_icon: string;
     id: string;
-    office: string;
-    organization: string;
+    position: string;
+    organization_name: string;
     salary: string;
     description: string;
     telegram: string;
     skype: string;
     email: string;
     phone: string;
-    jobType: string;
+    type: string;
 }
 
 function JobPage() {
@@ -27,7 +27,7 @@ function JobPage() {
 
     useEffect(() => {
         axios
-            .get(`http://3.38.98.134/events/${id}`)
+            .get(`http://3.38.98.134/jobs/${id}`)
             .then((response) => {
                 setVacancy(response.data.data);
             })
@@ -41,7 +41,7 @@ function JobPage() {
             e.stopPropagation();
 
             axios
-                .delete(`http://3.38.98.134/events/${id}`)
+                .delete(`http://3.38.98.134/jobs/${id}`)
                 .then(() => {
                     setVacancy(null);
                 })
@@ -69,16 +69,16 @@ function JobPage() {
             <div className="container">
                 <div className="job-list-container">
                     <div className="logo-office">
-                        <img src={vacancy.logo} alt="" />
+                        <img src={vacancy.organization_icon} alt="" />
                         <h2>
                             {" "}
                             <p>Компания</p>
-                            {vacancy.office}
+                            {vacancy.position}
                         </h2>
                     </div>
                     <div className="job__organization">
                         <h4>Организация </h4>
-                        <p>{vacancy.organization}</p>
+                        <p>{vacancy.organization_name}</p>
                     </div>
                     <div className="job__salary">
                         <h4>Оклад:</h4>
@@ -86,7 +86,7 @@ function JobPage() {
                     </div>
                     <div className="job__type">
                         <h4>Тип </h4>
-                        <p>{vacancy.jobType}</p>
+                        <p>{vacancy.type}</p>
                     </div>
                     <div className="job__description">
                         <h4 className="job__description">Описание:</h4>

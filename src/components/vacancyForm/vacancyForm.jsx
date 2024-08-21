@@ -7,15 +7,15 @@ import { useNavigate } from "react-router-dom";
 
 function VacancyForm() {
     const [formValues, setFormValues] = useState({
-        logo: "",
-        organization: "",
-        office: "",
+        organization_icon: "",
+        organization_name: "",
+        position: "",
         telegram: "",
         skype: "",
         email: "",
         salary: "",
         phone: "",
-        jobType: "",
+        type: "",
     });
     const [description, setDescription] = useState("");
     const [text, setText] = useState("");
@@ -41,7 +41,7 @@ function VacancyForm() {
         }));
     };
 
-    const api = "http://3.38.98.134/events";
+    const api = "http://3.38.98.134/jobs";
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -85,16 +85,16 @@ function VacancyForm() {
             <p className="organization">Logo</p>
             <input
                 type="text"
-                name="logo"
-                value={formValues.logo}
+                name="organization_icon"
+                value={formValues.organization_icon}
                 onChange={handleInputChange}
             />
 
             <p className="organization">Организация</p>
             <input
                 type="text"
-                name="organization"
-                value={formValues.organization}
+                name="organization_name"
+                value={formValues.organization_name}
                 onChange={handleInputChange}
             />
 
@@ -102,8 +102,8 @@ function VacancyForm() {
             <div className="officeVacancy">
                 <input
                     type="text"
-                    name="office"
-                    value={formValues.office}
+                    name="position"
+                    value={formValues.position}
                     onChange={handleInputChange}
                 />
                 <p>Например “Junior C# Developer”</p>
@@ -178,8 +178,8 @@ function VacancyForm() {
             <div className="typeVacancy">
                 <select
                     className="multiselect__content"
-                    name="jobType"
-                    value={formValues.jobType}
+                    name="type"
+                    value={formValues.type}
                     onChange={handleInputChange}
                 >
                     <option value="" disabled>
