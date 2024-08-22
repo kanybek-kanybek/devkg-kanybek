@@ -1,33 +1,34 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import "./JobPage.css";
 import Header from "../header/header";
 import Footer from "../footer/footer";
 
 interface Vacancy {
-    logo: string;
+    organization_icon: string;
     id: string;
-    office: string;
-    organization: string;
+    position: string;
+    organization_name: string;
     salary: string;
     description: string;
     telegram: string;
     skype: string;
     email: string;
     phone: string;
-    jobType: string;
+    type: string;
 }
 
 function JobPage() {
     const { id } = useParams<{ id: string }>();
     const [vacancy, setVacancy] = useState<Vacancy | null>(null);
+    const navigatePage = useNavigate();
 
     useEffect(() => {
         axios
-            .get(`https://01de09931cc9286e.mokky.dev/allvakansies/${id}`)
+            .get(`http://3.38.98.134/jobs/${id}`)
             .then((response) => {
-                setVacancy(response.data);
+                setVacancy(response.data.data);
             })
             .catch((error) => {
                 console.error("Failed to fetch vacancy:", error);
@@ -39,7 +40,7 @@ function JobPage() {
             e.stopPropagation();
 
             axios
-                .delete(`https://01de09931cc9286e.mokky.dev/allvakansies/${id}`)
+                .delete(`http://3.38.98.134/jobs/${id}`)
                 .then(() => {
                     setVacancy(null);
                 })
@@ -49,9 +50,16 @@ function JobPage() {
         },
         []
     );
+    function clickPageHandler() {
+        navigatePage("/JobOpenings");
+    }
 
     if (!vacancy) {
-        return <div className="vacancy-not-found">Вакансия удален</div>;
+        return (
+            <div className="vacancy-not-found">
+                Вакансия удален <button onClick={clickPageHandler}>back</button>
+            </div>
+        );
     }
 
     return (
@@ -60,16 +68,16 @@ function JobPage() {
             <div className="container">
                 <div className="job-list-container">
                     <div className="logo-office">
-                        <img src={vacancy.logo} alt="" />
+                        <img src={vacancy.organization_icon} alt="" />
                         <h2>
                             {" "}
                             <p>Компания</p>
-                            {vacancy.office}
+                            {vacancy.position}
                         </h2>
                     </div>
                     <div className="job__organization">
                         <h4>Организация </h4>
-                        <p>{vacancy.organization}</p>
+                        <p>{vacancy.organization_name}</p>
                     </div>
                     <div className="job__salary">
                         <h4>Оклад:</h4>
@@ -77,7 +85,7 @@ function JobPage() {
                     </div>
                     <div className="job__type">
                         <h4>Тип </h4>
-                        <p>{vacancy.jobType}</p>
+                        <p>{vacancy.type}</p>
                     </div>
                     <div className="job__description">
                         <h4 className="job__description">Описание:</h4>

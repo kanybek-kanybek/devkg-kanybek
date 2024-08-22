@@ -7,15 +7,15 @@ import { useNavigate } from "react-router-dom";
 
 function VacancyForm() {
     const [formValues, setFormValues] = useState({
-        logo: "",
-        organization: "",
-        office: "",
+        organization_icon: "",
+        organization_name: "",
+        position: "",
         telegram: "",
         skype: "",
         email: "",
         salary: "",
         phone: "",
-        jobType: "",
+        type: "",
     });
     const [description, setDescription] = useState("");
     const [text, setText] = useState("");
@@ -41,31 +41,34 @@ function VacancyForm() {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const api = "http://3.38.98.134/jobs";
+
+    async function handleSubmit(e) {
         e.preventDefault();
+
         const updatedFormValues = {
             ...formValues,
             id: Date.now(),
             description,
         };
-        console.log("Form values:", updatedFormValues);
-        axios
-            .post(
-                "https://01de09931cc9286e.mokky.dev/allvakansies",
+
+        try {
+            await axios.post(api, updatedFormValues);
+            console.log(
+                "Форма маалыматтары ийгиликтүү сакталды:",
                 updatedFormValues
-            )
-            .then((res) => {
-                console.log(res.data);
-                navigate("/jobOpenings");
-            })
-            .catch((err) => {
-                console.error("Ошибка при отправке формы:", err);
-            });
-    };
+            );
+
+            navigate("/JobOpenings");
+        } catch (error) {
+            console.error("Маалыматтарды сактоодо ката кетти:", error);
+        }
+    }
 
     const handleDescriptionChange = (value) => {
-        setDescription(value);
-        setText(value);
+        const plainText = value.replace(/<\/?[^>]+(>|$)/g, "");
+        setDescription(plainText);
+        setText(plainText);
     };
 
     const toolbarOptions = [
@@ -82,16 +85,16 @@ function VacancyForm() {
             <p className="organization">Logo</p>
             <input
                 type="text"
-                name="logo"
-                value={formValues.logo}
+                name="organization_icon"
+                value={formValues.organization_icon}
                 onChange={handleInputChange}
             />
 
             <p className="organization">Организация</p>
             <input
                 type="text"
-                name="organization"
-                value={formValues.organization}
+                name="organization_name"
+                value={formValues.organization_name}
                 onChange={handleInputChange}
             />
 
@@ -99,8 +102,8 @@ function VacancyForm() {
             <div className="officeVacancy">
                 <input
                     type="text"
-                    name="office"
-                    value={formValues.office}
+                    name="position"
+                    value={formValues.position}
                     onChange={handleInputChange}
                 />
                 <p>Например “Junior C# Developer”</p>
@@ -127,16 +130,7 @@ function VacancyForm() {
                     }}
                     modules={modules}
                 />
-                <p>
-                    Здесь <strong>необходимо</strong> указать условия труда,
-                    требования и обязанности. <br />
-                    Также вы можете указать краткое описание компании, например:{" "}
-                    <br />
-                    <br />
-                    “В дружный отдел дизайна игровой студии ”Bloody Fun”
-                    требуется <br />
-                    проект менеджер со стажем”
-                </p>
+                <p>Описание компании и вакансии.</p>
             </div>
             <br />
             <br />
@@ -152,9 +146,7 @@ function VacancyForm() {
                 />
                 <p>
                     <strong>Не обязательно</strong> заполнять все поля для
-                    контактов. Например, если у вас нет почты или вы не хотите
-                    оставлять свой телеграм, <br />
-                    <strong>оставьте поля пустыми.</strong>
+                    контактов.
                 </p>
             </div>
 
@@ -186,8 +178,8 @@ function VacancyForm() {
             <div className="typeVacancy">
                 <select
                     className="multiselect__content"
-                    name="jobType"
-                    value={formValues.jobType}
+                    name="type"
+                    value={formValues.type}
                     onChange={handleInputChange}
                 >
                     <option value="" disabled>
@@ -209,10 +201,7 @@ function VacancyForm() {
                         Стажировка (только Кыргызстан)
                     </option>
                 </select>
-                <p>
-                    Обязательное поле, в котором вы можете выбрать тип работы
-                    для вашей вакансии.
-                </p>
+                <p>Обязательное поле для выбора типа работы.</p>
             </div>
 
             <div className="form-buttons">
