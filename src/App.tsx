@@ -9,6 +9,8 @@ import Community from "./pages/Community/Community";
 import AddVacancy from "./pages/addVacancy/addVacancy";
 import JobPage from "./components/JobPage/JobPage";
 import Sinup from "./pages/sinup/sinup";
+import EventsForm from "./components/eventsForm/eventsForm";
+import VideoForm from "./components/videoForm/videoForm";
 
 const router = createBrowserRouter([
     {
@@ -46,6 +48,14 @@ const router = createBrowserRouter([
     {
         path: "/Sinup/:id",
         element: <Sinup />,
+    },
+    {
+        path: "/eventsForm/:id",
+        element: <EventsForm />,
+    },
+    {
+        path: "/videoForm/:id",
+        element: <VideoForm />,
     },
 ]);
 
